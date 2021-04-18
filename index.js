@@ -117,6 +117,20 @@ client.connect(err => {
       })
 
   })
+  app.post('/findAdmin', (req, res) => {
+     
+    const newfindAdmin = req.body;
+     adminCollection.find({email: req.body.email})
+     .toArray((error, result)=>{
+       res.send(result)
+         console.log(result)
+    })       
+    
+
+      
+
+  })  
+
   console.log('database connection success')
   const uri = "mongodb+srv://freshvalley123:4r5bY9QpG7i6ZJYv@cluster0.ivvdq.mongodb.net/Protikar?retryWrites=true&w=majority";
 });
